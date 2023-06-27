@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "903741518580",
+    "project_id": "sn-silos1",
+    "storage_bucket": "sn-silos1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903741518580:android:06f60b2947a7cbcec0e4a1",
+        "android_client_info": {
+          "package_name": "com.example.sn_silos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903741518580-95uifi51i01hfgtt42petmcqbejf1llk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4HxbLrdgMMAr6GtC2VVAkBS-SgrqhWbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903741518580-95uifi51i01hfgtt42petmcqbejf1llk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
