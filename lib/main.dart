@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sn_silos/core/general/screens/home_screen.dart';
 import 'package:sn_silos/utils/theme_data.dart';
 
 import 'utils/route_generator.dart';
@@ -15,6 +16,7 @@ class SnSilosApp extends StatelessWidget {
     return MaterialApp(
       theme: lightThemeData,
       onGenerateRoute: RouteGenerator.generateRoute,
+      initialRoute: HomeScreen.id,
     );
   }
 }
