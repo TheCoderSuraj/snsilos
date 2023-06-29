@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:sn_silos/core/general/screens/home_screen.dart';
+import 'package:oktoast/oktoast.dart';
+import 'package:sn_silos/core/auth/screens/login_screen.dart';
 import 'package:sn_silos/utils/theme_data.dart';
 
 import 'firebase_options.dart';
@@ -23,10 +24,12 @@ class SnSilosApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: lightThemeData,
-      onGenerateRoute: RouteGenerator.generateRoute,
-      initialRoute: HomeScreen.id,
+    return OKToast(
+      child: MaterialApp(
+        theme: lightThemeData,
+        onGenerateRoute: RouteGenerator.generateRoute,
+        initialRoute: LoginScreen.id,
+      ),
     );
   }
 }

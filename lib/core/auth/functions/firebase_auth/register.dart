@@ -8,7 +8,7 @@ Future<bool> _registerWithEmailPassword({
   listener ??= const FirebaseCallbackListener();
   bool res = false;
   try {
-    await AuthFirebase.getInstance()
+    await AuthFirebase._getInstance()
         .createUserWithEmailAndPassword(email: email, password: password)
         .then(
       (value) {
@@ -17,7 +17,7 @@ Future<bool> _registerWithEmailPassword({
       },
       onError: (e) {
         res = false;
-        var err = "SignUp Error: $e";
+        var err = "SignUp Error: ${e.message}";
         debugPrint(err);
         listener?.call(error: err);
       },

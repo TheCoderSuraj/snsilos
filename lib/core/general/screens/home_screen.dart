@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sn_silos/widgets/screen_page_setup.dart';
 
 class HomeScreen extends StatelessWidget {
   static const id = "HomeScreenId";
@@ -6,6 +7,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Home Screen"),
+      ),
+      body: const ScreenPageSetup(
+        children: [],
+      ),
+    );
   }
 }

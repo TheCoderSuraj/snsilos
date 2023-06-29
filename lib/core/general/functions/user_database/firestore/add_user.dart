@@ -1,15 +1,21 @@
-part of 'auth_firebase.dart';
+part of 'user_firestore_database.dart';
 
-Future<bool> _loginWithEmailPassword({
-  required String email,
-  required String password,
+Future<bool> _addUser({
+  required String uid,
+  required UserModel user,
   FirebaseCallbackListener? listener,
 }) async {
   listener ??= const FirebaseCallbackListener();
   bool res = false;
   try {
-    await AuthFirebase._getInstance()
-        .signInWithEmailAndPassword(email: email, password: password)
+    var data = user.toJson();
+    data.remove('joinedDate');
+    data['id'] = uid;
+    data['joinedDate'] = FieldValue.serverTimestamp();
+    await UserFireStoreDatabase.getInstance()
+        .collection(UserFireStoreDatabase._UserCollectionName)
+        .doc(user.id)
+        .set(data)
         .then(
       (value) {
         listener?.call();

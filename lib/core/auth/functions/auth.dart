@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../../utils/firebase_callback_listener.dart';
 import 'firebase_auth/auth_firebase.dart';
 
-class Auth {
+class AuthApi {
   static Future<bool> registerWithEmailPassword({
     required String email,
     required String password,
@@ -24,5 +26,13 @@ class Auth {
       password: password,
       listener: listener,
     );
+  }
+
+  static User? getCurrentUser() {
+    return AuthFirebase.getCurrentUser();
+  }
+
+  static bool? isUserLoggedIn() {
+    return AuthFirebase.isUserLoggedIn();
   }
 }

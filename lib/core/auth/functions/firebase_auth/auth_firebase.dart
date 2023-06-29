@@ -7,8 +7,16 @@ part 'login.dart';
 part 'register.dart';
 
 class AuthFirebase {
-  static FirebaseAuth getInstance() {
+  static FirebaseAuth _getInstance() {
     return FirebaseAuth.instance;
+  }
+
+  static User? getCurrentUser() {
+    return _getInstance().currentUser;
+  }
+
+  static bool? isUserLoggedIn() {
+    return _getInstance().currentUser != null;
   }
 
   static Future<bool> registerWithEmailPassword({
