@@ -8,6 +8,7 @@ import 'package:sn_silos/models/user_model.dart';
 import 'package:sn_silos/utils/firebase_callback_listener.dart';
 import 'package:sn_silos/widgets/screen_page_setup.dart';
 
+import '../../../utils/loading_dialog.dart';
 import '../../../utils/validity_methods.dart';
 import '../../../widgets/action_button.dart';
 import '../widgets/password_field.dart';
@@ -109,7 +110,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
     setState(() {
       isLoading = true;
     });
-    showSignUpDialog(context);
+    showLoadingDialog(
+      context,
+      title: "Registering User",
+    );
     bool register = await AuthFirebase.registerWithEmailPassword(
       email: _emailController.text,
       password: _passController.text,
@@ -134,6 +138,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           listener: FirebaseCallbackListener(
             onError: (err) {
               print("user adding error");
+              Navigator.pop(context);
             },
             onSuccess: () {
               Navigator.pushNamedAndRemoveUntil(
@@ -144,24 +149,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
             },
           ));
     }
-  }
-
-  void showSignUpDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text("Registering User"),
-          content: SizedBox(
-            height: 70,
-            child: SpinKitFadingCube(
-              size: 50,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-        );
-      },
-    );
   }
 }

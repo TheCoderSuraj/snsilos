@@ -32,7 +32,7 @@ class AuthApi {
     return AuthFirebase.getCurrentUser();
   }
 
-  static bool? isUserLoggedIn() {
+  static bool isUserLoggedIn() {
     return AuthFirebase.isUserLoggedIn();
   }
 

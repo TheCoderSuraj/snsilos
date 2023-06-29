@@ -15,6 +15,11 @@ ThemeData lightThemeData = ThemeData.light().copyWith(
       fontWeight: FontWeight.w500,
       fontSize: 18,
     ),
+    labelMedium: TextStyle(
+      color: Colors.black87,
+      fontWeight: FontWeight.w900,
+      fontSize: 20,
+    ),
   ),
   inputDecorationTheme: InputDecorationTheme(
     border: OutlineInputBorder(

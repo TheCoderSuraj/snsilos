@@ -15,7 +15,7 @@ class AuthFirebase {
     return _getInstance().currentUser;
   }
 
-  static bool? isUserLoggedIn() {
+  static bool isUserLoggedIn() {
     return _getInstance().currentUser != null;
   }
 

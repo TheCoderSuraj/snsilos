@@ -13,7 +13,7 @@ Future<bool> _addUser({
     data['id'] = uid;
     data['joinedDate'] = FieldValue.serverTimestamp();
     await UserFireStoreDatabase.getInstance()
-        .collection(UserFireStoreDatabase._UserCollectionName)
+        .collection(apUserCollectionName)
         .doc(uid)
         .set(data)
         .then(

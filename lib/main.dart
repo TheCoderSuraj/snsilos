@@ -2,6 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:sn_silos/core/auth/screens/login_screen.dart';
+import 'package:sn_silos/core/ecommerce/screens/cart_screen.dart';
+import 'package:sn_silos/core/ecommerce/screens/product_detail_screen.dart';
+import 'package:sn_silos/core/general/screens/home_screen.dart';
+import 'package:sn_silos/models/product_model.dart';
 import 'package:sn_silos/utils/theme_data.dart';
 
 import 'firebase_options.dart';
@@ -27,8 +31,13 @@ class SnSilosApp extends StatelessWidget {
     return OKToast(
       child: MaterialApp(
         theme: lightThemeData,
+        debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.generateRoute,
         initialRoute: LoginScreen.id,
+        // initialRoute: CartScreen.id,
+        // home: ProductDetailScreen(
+        //   product: ProductModel.demo(),
+        // ),
       ),
     );
   }
