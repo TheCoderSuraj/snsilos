@@ -19,6 +19,22 @@ class AuthFirebase {
     return _getInstance().currentUser != null;
   }
 
+  static Future<void> signOut({
+    FirebaseCallbackListener? listener,
+  }) async {
+    listener ??= const FirebaseCallbackListener();
+    try {
+      _getInstance().signOut().then((value) {
+        listener?.call();
+      }, onError: (e) {
+        print("logout Error: $e");
+        listener?.call(error: e.message);
+      });
+    } catch (e) {
+      print("logout Error: $e");
+    }
+  }
+
   static Future<bool> registerWithEmailPassword({
     required String email,
     required String password,

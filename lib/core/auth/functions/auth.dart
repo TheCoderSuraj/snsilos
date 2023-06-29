@@ -35,4 +35,10 @@ class AuthApi {
   static bool? isUserLoggedIn() {
     return AuthFirebase.isUserLoggedIn();
   }
+
+  static Future<void> signOut({
+    FirebaseCallbackListener? listener,
+  }) async {
+    return AuthFirebase.signOut(listener: listener);
+  }
 }

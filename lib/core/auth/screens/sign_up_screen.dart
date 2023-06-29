@@ -21,10 +21,18 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passController = TextEditingController();
-  final TextEditingController _confirmPassController = TextEditingController();
+  final TextEditingController _nameController =
+      TextEditingController(text: "ham");
+  final TextEditingController _emailController =
+      TextEditingController(text: "ham@gmail.com");
+  final TextEditingController _passController =
+      TextEditingController(text: "hami1234");
+  final TextEditingController _confirmPassController =
+      TextEditingController(text: "hami1234");
+  // final TextEditingController _nameController = TextEditingController();
+  // final TextEditingController _emailController = TextEditingController();
+  // final TextEditingController _passController = TextEditingController();
+  // final TextEditingController _confirmPassController = TextEditingController();
 
   final GlobalKey<FormState> _key = GlobalKey();
   @override
@@ -109,6 +117,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     setState(() {
       isLoading = true;
     });
+    showSignUpDialog(context);
     bool register = await AuthFirebase.registerWithEmailPassword(
       email: _emailController.text,
       password: _passController.text,
@@ -148,6 +157,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void showSignUpDialog(BuildContext context) {
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
           title: const Text("Registering User"),
@@ -158,13 +168,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
-          actions: [
-            if (error != "")
-              TextButton(
-                onPressed: () {},
-                child: const Text("Try again"),
-              )
-          ],
         );
       },
     );
