@@ -1,16 +1,13 @@
-# sn_silos
+# SN SILOS
+This is a sample e-commerce application created for competition WorkForce held by IEEE CIS Society.
 
-A new Flutter project.
+Here I had tried to keep this app as simple as possible with all features that we were told to create.
+I had tried to include as many features of Flutter as possible.
 
-## Getting Started
+I have used Firebase for backend. 
+Specially, Firebase Authentication for auth,
+           Firebase firestore for database,
 
-This project is a starting point for a Flutter application.
+However, we could even use firebase firestore and firebase storage to create mock data but I had used third-party api for getting data because I also wanted to include api integration in this project.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Hence, For Mock Data I had used: [https://fakestoreapi.com/products]

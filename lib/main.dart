@@ -11,6 +11,7 @@ import 'package:sn_silos/core/general/screens/profile_screen.dart';
 import 'package:sn_silos/models/product_model.dart';
 import 'package:sn_silos/utils/theme_data.dart';
 
+import 'core/ecommerce/screens/splash_screen.dart';
 import 'firebase_options.dart';
 import 'utils/route_generator.dart';
 
@@ -41,7 +42,7 @@ class SnSilosApp extends StatelessWidget {
         theme: lightThemeData,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.generateRoute,
-        initialRoute: LoginScreen.id,
+        initialRoute: SplashScreen.id,
         // initialRoute: CartScreen.id,
         // home: ProductDetailScreen(
         //   product: ProductModel.demo(),
