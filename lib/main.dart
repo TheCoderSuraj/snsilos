@@ -2,13 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
-import 'package:sn_silos/core/auth/screens/login_screen.dart';
-import 'package:sn_silos/core/ecommerce/screens/cart_screen.dart';
-import 'package:sn_silos/core/ecommerce/screens/product_detail_screen.dart';
 import 'package:sn_silos/core/general/providers/home_provider.dart';
-import 'package:sn_silos/core/general/screens/home_screen.dart';
-import 'package:sn_silos/core/general/screens/profile_screen.dart';
-import 'package:sn_silos/models/product_model.dart';
 import 'package:sn_silos/utils/theme_data.dart';
 
 import 'core/ecommerce/screens/splash_screen.dart';

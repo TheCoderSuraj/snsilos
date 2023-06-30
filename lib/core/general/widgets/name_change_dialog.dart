@@ -6,7 +6,7 @@ import 'package:sn_silos/utils/loading_dialog.dart';
 
 Future<String?> showNameChangeDialog(
     BuildContext context, UserModel user) async {
-  TextEditingController _nameController =
+  TextEditingController nameController =
       TextEditingController(text: user.name);
   String? newName;
   await showDialog(
@@ -14,7 +14,7 @@ Future<String?> showNameChangeDialog(
     builder: (context) => AlertDialog(
       title: const Text("Change Name"),
       content: TextFormField(
-        controller: _nameController,
+        controller: nameController,
         decoration: const InputDecoration(labelText: "Name"),
       ),
       actions: [
@@ -26,16 +26,16 @@ Future<String?> showNameChangeDialog(
         ),
         ElevatedButton(
           onPressed: () async {
-            if (_nameController.text == "" ||
-                _nameController.text == user.name) {
+            if (nameController.text == "" ||
+                nameController.text == user.name) {
               return;
             }
             showLoadingDialog(context, title: "Updating User");
             UserDatabaseApi.updateUser(
-                user: user.copyWith(_nameController.text),
+                user: user.copyWith(nameController.text),
                 listener: FirebaseCallbackListener(
                   onSuccess: () {
-                    newName = _nameController.text;
+                    newName = nameController.text;
                     Navigator.pop(context);
                     Navigator.pop(context);
                   },

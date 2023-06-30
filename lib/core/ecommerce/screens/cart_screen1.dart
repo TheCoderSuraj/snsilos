@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sn_silos/core/ecommerce/functions/cart/cart_api.dart';
 import 'package:sn_silos/core/ecommerce/widgets/cart_product_element.dart';

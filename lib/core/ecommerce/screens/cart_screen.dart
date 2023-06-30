@@ -4,8 +4,6 @@ import 'package:sn_silos/core/ecommerce/functions/cart/cart_api.dart';
 import 'package:sn_silos/core/ecommerce/widgets/cart_product_element.dart';
 import 'package:sn_silos/models/product_model.dart';
 import 'package:sn_silos/utils/constants.dart';
-import 'package:sn_silos/utils/firebase_callback_listener.dart';
-import 'package:sn_silos/utils/loading_dialog.dart';
 import 'package:sn_silos/widgets/app_navigator_bar.dart';
 
 class CartScreen extends StatefulWidget {
@@ -60,7 +58,7 @@ class _CartScreenState extends State<CartScreen> {
                   return Center(
                     child: Text("Error: ${snapshot.error}"),
                   );
-                } else if (snapshot.hasData && snapshot.data!.docs.length > 0) {
+                } else if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
                   // cartItems = [];
                   // for (var a in snapshot.data!.docs) {
                   //   cartItems.add(ProductModel.fromJson(a.data()));

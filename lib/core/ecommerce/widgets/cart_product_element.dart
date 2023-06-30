@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sn_silos/core/ecommerce/functions/cart/cart_api.dart';
 import 'package:sn_silos/models/product_model.dart';
 import 'package:sn_silos/utils/firebase_callback_listener.dart';
-import 'package:sn_silos/utils/loading_dialog.dart';
 import 'package:sn_silos/utils/utility.dart';
 
 class CartProductElement extends StatefulWidget {
@@ -20,7 +19,7 @@ class _CartProductElementState extends State<CartProductElement> {
   final int kCartProductTitleLimit = 37;
 
   String title = "";
-  TextEditingController _cntController = TextEditingController(text: "1");
+  final TextEditingController _cntController = TextEditingController(text: "1");
 
   int itemCount = 1;
   @override

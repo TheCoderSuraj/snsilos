@@ -35,7 +35,7 @@ class _AddEditAddressScreenState extends State<AddEditAddressScreen> {
   final TextEditingController _add1Controller = TextEditingController();
   final TextEditingController _add2Controller = TextEditingController();
 
-  GlobalKey<FormState> _key = GlobalKey();
+  final GlobalKey<FormState> _key = GlobalKey();
   @override
   void initState() {
     super.initState();

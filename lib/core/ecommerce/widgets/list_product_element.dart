@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sn_silos/core/ecommerce/functions/product/product_api.dart';
 import 'package:sn_silos/core/ecommerce/screens/product_detail_screen.dart';
 import 'package:sn_silos/models/product_model.dart';
 

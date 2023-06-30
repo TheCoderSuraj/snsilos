@@ -11,3 +11,6 @@ Specially, Firebase Authentication for auth,
 However, we could even use firebase firestore and firebase storage to create mock data but I had used third-party api for getting data because I also wanted to include api integration in this project.
 
 Hence, For Mock Data I had used: [https://fakestoreapi.com/products]
+
+Also we have used 'Provider' package also. 
+In cart system, we have also gone with stream builder however we could even go with provider (less expensive) but since this is a test project so I go with stream builder to show use of stream builder.
