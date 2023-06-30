@@ -7,9 +7,9 @@ Future<void> _updateCartProduct({
 }) async {
   try {
     await UserFireStoreDatabase.getInstance()
-        .collection(apUserCollectionName)
+        .collection(fUserCollectionName)
         .doc(uid)
-        .collection(apCartProductCollectionName)
+        .collection(fCartProductCollectionName)
         .doc(product.id)
         .update({
       "totalPrice": product.totalPrice,

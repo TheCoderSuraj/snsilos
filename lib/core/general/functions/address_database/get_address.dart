@@ -1,23 +1,22 @@
-part of 'cart_api.dart';
+part of 'address_database_api.dart';
 
-Future<void> _addProductToCart({
+Future<List<AddressModel>> _getAllAddress({
   required String uid,
-  required ProductModel product,
   FirebaseCallbackListener? listener,
 }) async {
+  List<AddressModel> res = [];
   try {
-    var data = product.toJson();
-
-    data['createdDate'] = FieldValue.serverTimestamp();
-    var doc = UserFireStoreDatabase.getInstance()
+    await FirebaseFirestore.instance
         .collection(fUserCollectionName)
         .doc(uid)
-        .collection(fCartProductCollectionName)
-        .doc();
-    data['id'] = doc.id;
-    doc.set(data).then(
+        .collection(fAddressCollectionName)
+        .get()
+        .then(
       (value) {
         listener?.call();
+        for (var a in value.docs) {
+          res.add(AddressModel.fromJson(a.data()));
+        }
       },
       onError: (e) {
         var err = "AddCart Error: $e";
@@ -30,4 +29,5 @@ Future<void> _addProductToCart({
     debugPrint(err);
     listener?.call(error: err);
   }
+  return res;
 }

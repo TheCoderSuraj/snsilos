@@ -15,6 +15,12 @@ class UserModel {
   late List<dynamic> address;
   Timestamp? joinedDate;
 
+  UserModel copyWith(String nam) {
+    var v = UserModel.fromJson(toJson());
+    v.name = nam;
+    return v;
+  }
+
   UserModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];

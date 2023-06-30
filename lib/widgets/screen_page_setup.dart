@@ -26,7 +26,7 @@ class ScreenPageSetup extends StatelessWidget {
                 padding: kPagePadding,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: crossAxisAlignment,
                   children: children,
                 ),
               ),

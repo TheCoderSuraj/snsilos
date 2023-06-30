@@ -7,7 +7,9 @@ class AddressModel {
     required this.postalCode,
     this.addressLine1,
     this.addressLine2,
+    this.id = "",
   });
+  String id = "";
   late String country;
   late String state;
   late String district;
@@ -17,6 +19,7 @@ class AddressModel {
   String? addressLine2;
 
   AddressModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     country = json['country'];
     state = json['state'];
     district = json['district'];
@@ -28,6 +31,7 @@ class AddressModel {
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
+    data['id'] = id;
     data['country'] = country;
     data['state'] = state;
     data['district'] = district;

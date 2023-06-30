@@ -47,6 +47,24 @@ String? validatePhoneNumber(String? value) {
   return null;
 }
 
+String? validatePostalCode(String? value) {
+  if (value == null || value == "") {
+    return "Postal Code is required field";
+  } else if (value.length < 3) {
+    return "Invalid Number";
+  } else {
+    try {
+      int? v = int.tryParse(value);
+      if (v == null) {
+        return "Invalid Number";
+      }
+    } catch (e) {
+      debugPrint("Error $e");
+    }
+  }
+  return null;
+}
+
 String? validateDesc(String? value) {
   if (value == null || value == "") {
     return "Desc is required field";

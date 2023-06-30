@@ -6,6 +6,7 @@ import 'package:sn_silos/models/product_model.dart';
 import 'package:sn_silos/utils/constants.dart';
 import 'package:sn_silos/utils/firebase_callback_listener.dart';
 import 'package:sn_silos/utils/loading_dialog.dart';
+import 'package:sn_silos/widgets/app_navigator_bar.dart';
 
 class CartScreen extends StatefulWidget {
   static const id = "CartScreenId";
@@ -88,6 +89,7 @@ class _CartScreenState extends State<CartScreen> {
           // ),
         ),
       ),
+      bottomNavigationBar: const AppBottomNavigatorBar(),
     );
   }
 }

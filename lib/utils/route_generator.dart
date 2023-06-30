@@ -4,6 +4,7 @@ import 'package:sn_silos/core/auth/screens/sign_up_screen.dart';
 import 'package:sn_silos/core/ecommerce/screens/cart_screen.dart';
 import 'package:sn_silos/core/ecommerce/screens/product_detail_screen.dart';
 import 'package:sn_silos/core/general/screens/home_screen.dart';
+import 'package:sn_silos/core/general/screens/profile_screen.dart';
 import 'package:sn_silos/models/product_model.dart';
 
 import '../core/general/screens/error_screen.dart';
@@ -30,6 +31,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
           settings: const RouteSettings(name: HomeScreen.id),
+        );
+      case ProfileScreen.id:
+        return MaterialPageRoute(
+          builder: (context) => const ProfileScreen(),
+          settings: const RouteSettings(name: ProfileScreen.id),
         );
 
       // E-commerce Section

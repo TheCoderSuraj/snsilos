@@ -21,7 +21,7 @@ class ProductModel {
   late String image;
   late double rating;
   late int votes;
-  double get totalPrice => itemCount * price;
+  double get totalPrice => itemCount.toDouble() * price;
   Timestamp? createdDate;
   int itemCount = 0;
   // set setCount(int value) {
@@ -54,7 +54,7 @@ class ProductModel {
     id = json['id'].toString();
     title = json['title'];
     category = json['category'];
-    price = json['price'];
+    price = double.parse(json['price'].toString());
     image = json['image'];
     description = json['description'];
 
@@ -63,7 +63,7 @@ class ProductModel {
 
     // just for fakestoreapi.com
     // rating and vote are in nested map "rating"
-    rating = json['rating']["rate"];
+    rating = double.parse(json['rating']["rate"].toString());
     votes = json['rating']['count'];
     itemCount = 1;
 

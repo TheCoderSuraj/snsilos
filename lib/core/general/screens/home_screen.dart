@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sn_silos/core/auth/functions/auth.dart';
 import 'package:sn_silos/core/auth/screens/login_screen.dart';
 import 'package:sn_silos/core/ecommerce/functions/product/product_api.dart';
 import 'package:sn_silos/core/ecommerce/widgets/cart_product_element.dart';
 import 'package:sn_silos/core/ecommerce/widgets/list_product_element.dart';
+import 'package:sn_silos/core/general/providers/home_provider.dart';
 import 'package:sn_silos/models/product_model.dart';
 import 'package:sn_silos/utils/constants.dart';
 import 'package:sn_silos/utils/firebase_callback_listener.dart';
 import 'package:sn_silos/widgets/screen_page_setup.dart';
 
 import '../../../utils/loading_dialog.dart';
+import '../../../widgets/app_navigator_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   static const id = "HomeScreenId";
@@ -29,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void loadData() async {
-    await Future.delayed(const Duration(milliseconds: 1));
+    await Future.delayed(const Duration(milliseconds: 100));
     Future.sync(() {
       showLoadingDialog(context, title: "loading products");
     });
@@ -89,6 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: AppBottomNavigatorBar(),
     );
   }
 }

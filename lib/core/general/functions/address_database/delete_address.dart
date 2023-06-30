@@ -1,29 +1,29 @@
-part of 'cart_api.dart';
+part of 'address_database_api.dart';
 
-Future<void> _deleteProductFromCart({
+Future<void> _deleteAddress({
   required String uid,
-  required String productId,
+  required String addressId,
   FirebaseCallbackListener? listener,
 }) async {
   try {
-    UserFireStoreDatabase.getInstance()
+    await FirebaseFirestore.instance
         .collection(fUserCollectionName)
         .doc(uid)
-        .collection(fCartProductCollectionName)
-        .doc(productId)
+        .collection(fAddressCollectionName)
+        .doc(addressId)
         .delete()
         .then(
       (value) {
         listener?.call();
       },
       onError: (e) {
-        var err = "DeleteCart Error: $e";
+        var err = "AddCart Error: $e";
         debugPrint(err);
         listener?.call(error: err);
       },
     );
   } catch (e) {
-    var err = "DeleteCart Error: $e";
+    var err = "AddCart Error: $e";
     debugPrint(err);
     listener?.call(error: err);
   }

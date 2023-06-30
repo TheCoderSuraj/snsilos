@@ -1,35 +1,36 @@
 part of 'user_firestore_database.dart';
 
-Future<bool> _addUser({
+Future<UserModel?> _getUser({
   required String uid,
-  required UserModel user,
   FirebaseCallbackListener? listener,
 }) async {
   listener ??= const FirebaseCallbackListener();
-  bool res = false;
+  UserModel? res;
   try {
-    var data = user.toJson();
-    data.remove('joinedDate');
-    data['id'] = uid;
-    data['joinedDate'] = FieldValue.serverTimestamp();
     await UserFireStoreDatabase.getInstance()
         .collection(fUserCollectionName)
         .doc(uid)
-        .set(data)
+        .get()
         .then(
       (value) {
-        listener?.call();
-        res = true;
+        print("value ${value.data()}");
+        if (value.data() != null) {
+          res = UserModel.fromJson(value.data()!);
+          listener?.call();
+          print("value $res");
+        } else {
+          listener?.call(error: "Null data");
+        }
       },
       onError: (e) {
-        res = false;
+        res = null;
         var err = "Login Error: $e";
         debugPrint(err);
         listener?.call(error: err);
       },
     );
   } catch (e) {
-    res = false;
+    res = null;
     var err = "Login Error: $e";
     debugPrint(err);
     listener.call(error: err);

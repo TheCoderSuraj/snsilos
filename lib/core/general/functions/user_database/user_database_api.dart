@@ -9,10 +9,30 @@ class UserDatabaseApi {
     required UserModel user,
     FirebaseCallbackListener? listener,
   }) async {
-    if (!(AuthFirebase.isUserLoggedIn() ?? false)) return false;
+    if (!(AuthFirebase.isUserLoggedIn())) return false;
     return UserFireStoreDatabase.addUser(
       uid: AuthFirebase.getCurrentUser()!.uid,
       user: user,
+      listener: listener,
+    );
+  }
+
+  static Future<bool> updateUser({
+    required UserModel user,
+    FirebaseCallbackListener? listener,
+  }) async {
+    if (!(AuthFirebase.isUserLoggedIn())) return false;
+    return UserFireStoreDatabase.updateUser(
+      uid: AuthFirebase.getCurrentUser()!.uid,
+      user: user,
+      listener: listener,
+    );
+  }
+
+  static Future<UserModel?> getUser({
+    FirebaseCallbackListener? listener,
+  }) async {
+    return UserFireStoreDatabase.getUser(
       listener: listener,
     );
   }

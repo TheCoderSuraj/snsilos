@@ -44,6 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: ScreenPageSetup(
           children: [
             const SizedBox(height: 35),
+            const Spacer(),
             Text(
               "LogIn Screen",
               style: Theme.of(context).textTheme.headlineMedium,

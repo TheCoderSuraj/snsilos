@@ -7,9 +7,9 @@ Future<List<ProductModel>> _getAllProductToCart({
   List<ProductModel> res = [];
   try {
     await UserFireStoreDatabase.getInstance()
-        .collection(apUserCollectionName)
+        .collection(fUserCollectionName)
         .doc(uid)
-        .collection(apCartProductCollectionName)
+        .collection(fCartProductCollectionName)
         .get()
         .then(
       (value) {
@@ -37,8 +37,8 @@ Stream<QuerySnapshot<Map<String, dynamic>>> _getProductStream({
   required String uid,
 }) {
   return UserFireStoreDatabase.getInstance()
-      .collection(apUserCollectionName)
+      .collection(fUserCollectionName)
       .doc(uid)
-      .collection(apCartProductCollectionName)
+      .collection(fCartProductCollectionName)
       .snapshots();
 }

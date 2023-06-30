@@ -1,6 +1,6 @@
 part of 'user_firestore_database.dart';
 
-Future<bool> _addUser({
+Future<bool> _updateUser({
   required String uid,
   required UserModel user,
   FirebaseCallbackListener? listener,
@@ -9,13 +9,10 @@ Future<bool> _addUser({
   bool res = false;
   try {
     var data = user.toJson();
-    data.remove('joinedDate');
-    data['id'] = uid;
-    data['joinedDate'] = FieldValue.serverTimestamp();
     await UserFireStoreDatabase.getInstance()
         .collection(fUserCollectionName)
         .doc(uid)
-        .set(data)
+        .update(data)
         .then(
       (value) {
         listener?.call();
